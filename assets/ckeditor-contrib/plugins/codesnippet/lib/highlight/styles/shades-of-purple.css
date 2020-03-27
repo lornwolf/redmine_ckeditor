@@ -1,0 +1,88 @@
+.shades-of-purple {
+  display: block;
+  overflow-x: auto;
+  /* Custom font is optional */
+  /* font-family: 'Operator Mono', 'Fira Code', 'Menlo', 'Monaco', 'Courier New', 'monospace';  */
+  padding: 0.5em;
+  background: #2d2b57;
+  font-weight: normal;
+}
+
+.shades-of-purple .hljs-title {
+  color: #fad000;
+  font-weight: normal;
+}
+
+.shades-of-purple .hljs-name {
+  color: #a1feff;
+}
+
+.shades-of-purple .hljs-tag {
+  color: #ffffff;
+}
+
+.shades-of-purple .hljs-attr {
+  color: #f8d000;
+  font-style: italic;
+}
+
+.shades-of-purple .hljs-built_in,
+.shades-of-purple .hljs-selector-tag,
+.shades-of-purple .hljs-section {
+  color: #fb9e00;
+}
+
+.shades-of-purple .hljs-keyword {
+  color: #fb9e00;
+}
+
+.shades-of-purple ,
+.shades-of-purple .hljs-subst {
+  color: #e3dfff;
+}
+
+.shades-of-purple .hljs-string,
+.shades-of-purple .hljs-attribute,
+.shades-of-purple .hljs-symbol,
+.shades-of-purple .hljs-bullet,
+.shades-of-purple .hljs-addition,
+.shades-of-purple .hljs-code,
+.shades-of-purple .hljs-regexp,
+.shades-of-purple .hljs-selector-class,
+.shades-of-purple .hljs-selector-attr,
+.shades-of-purple .hljs-selector-pseudo,
+.shades-of-purple .hljs-template-tag,
+.shades-of-purple .hljs-quote,
+.shades-of-purple .hljs-deletion {
+  color: #4cd213;
+}
+
+.shades-of-purple .hljs-meta,
+.shades-of-purple .hljs-meta-string {
+  color: #fb9e00;
+}
+
+.shades-of-purple .hljs-comment {
+  color: #ac65ff;
+}
+
+.shades-of-purple .hljs-keyword,
+.shades-of-purple .hljs-selector-tag,
+.shades-of-purple .hljs-literal,
+.shades-of-purple .hljs-name,
+.shades-of-purple .hljs-strong {
+  font-weight: normal;
+}
+
+.shades-of-purple .hljs-literal,
+.shades-of-purple .hljs-number {
+  color: #fa658d;
+}
+
+.shades-of-purple .hljs-emphasis {
+  font-style: italic;
+}
+
+.shades-of-purple .hljs-strong {
+  font-weight: bold;
+}

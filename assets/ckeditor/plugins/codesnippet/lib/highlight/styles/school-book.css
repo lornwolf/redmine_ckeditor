@@ -1,0 +1,63 @@
+.school-book {
+  display: block;
+  overflow-x: auto;
+  padding: 15px 0.5em 0.5em 30px;
+  font-size: 11px;
+  line-height:16px;
+  background:#f6f6ae url(./school-book.png);
+  border-top: solid 2px #d2e8b9;
+  border-bottom: solid 1px #d2e8b9;
+}
+
+.school-book .hljs-keyword,
+.school-book .hljs-selector-tag,
+.school-book .hljs-literal {
+  color:#005599;
+  font-weight:bold;
+}
+
+.school-book,
+.school-book .hljs-subst {
+  color: #3e5915;
+}
+
+.school-book .hljs-string,
+.school-book .hljs-title,
+.school-book .hljs-section,
+.school-book .hljs-type,
+.school-book .hljs-symbol,
+.school-book .hljs-bullet,
+.school-book .hljs-attribute,
+.school-book .hljs-built_in,
+.school-book .hljs-builtin-name,
+.school-book .hljs-addition,
+.school-book .hljs-variable,
+.school-book .hljs-template-tag,
+.school-book .hljs-template-variable,
+.school-book .hljs-link {
+  color: #2c009f;
+}
+
+.school-book .hljs-comment,
+.school-book .hljs-quote,
+.school-book .hljs-deletion,
+.school-book .hljs-meta {
+  color: #e60415;
+}
+
+.school-book .hljs-keyword,
+.school-book .hljs-selector-tag,
+.school-book .hljs-literal,
+.school-book .hljs-doctag,
+.school-book .hljs-title,
+.school-book .hljs-section,
+.school-book .hljs-type,
+.school-book .hljs-name,
+.school-book .hljs-selector-id,
+.school-book .hljs-strong {
+  font-weight: bold;
+}
+
+.school-book .hljs-emphasis {
+  font-style: italic;
+}

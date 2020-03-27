@@ -1,0 +1,102 @@
+.gruvbox-light {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fbf1c7;
+}
+
+.gruvbox-light,
+.gruvbox-light .hljs-subst {
+  color: #3c3836;
+}
+
+/* Gruvbox Red */
+.gruvbox-light .hljs-deletion,
+.gruvbox-light .hljs-formula,
+.gruvbox-light .hljs-keyword,
+.gruvbox-light .hljs-link,
+.gruvbox-light .hljs-selector-tag {
+  color: #9d0006;
+}
+
+/* Gruvbox Blue */
+.gruvbox-light .hljs-built_in,
+.gruvbox-light .hljs-emphasis,
+.gruvbox-light .hljs-name,
+.gruvbox-light .hljs-quote,
+.gruvbox-light .hljs-strong,
+.gruvbox-light .hljs-title,
+.gruvbox-light .hljs-variable {
+  color: #076678;
+}
+
+/* Gruvbox Yellow */
+.gruvbox-light .hljs-attr,
+.gruvbox-light .hljs-params,
+.gruvbox-light .hljs-template-tag,
+.gruvbox-light .hljs-type {
+  color: #b57614;
+}
+
+/* Gruvbox Purple */
+.gruvbox-light .hljs-builtin-name,
+.gruvbox-light .hljs-doctag,
+.gruvbox-light .hljs-literal,
+.gruvbox-light .hljs-number {
+  color: #8f3f71;
+}
+
+/* Gruvbox Orange */
+.gruvbox-light .hljs-code,
+.gruvbox-light .hljs-meta,
+.gruvbox-light .hljs-regexp,
+.gruvbox-light .hljs-selector-id,
+.gruvbox-light .hljs-template-variable {
+  color: #af3a03;
+}
+
+/* Gruvbox Green */
+.gruvbox-light .hljs-addition,
+.gruvbox-light .hljs-meta-string,
+.gruvbox-light .hljs-section,
+.gruvbox-light .hljs-selector-attr,
+.gruvbox-light .hljs-selector-class,
+.gruvbox-light .hljs-string,
+.gruvbox-light .hljs-symbol {
+  color: #79740e;
+}
+
+/* Gruvbox Aqua */
+.gruvbox-light .hljs-attribute,
+.gruvbox-light .hljs-bullet,
+.gruvbox-light .hljs-class,
+.gruvbox-light .hljs-function,
+.gruvbox-light .hljs-function .hljs-keyword,
+.gruvbox-light .hljs-meta-keyword,
+.gruvbox-light .hljs-selector-pseudo,
+.gruvbox-light .hljs-tag {
+  color: #427b58;
+}
+
+/* Gruvbox Gray */
+.gruvbox-light .hljs-comment {
+  color: #928374;
+}
+
+/* Gruvbox Purple */
+.gruvbox-light .hljs-link_label,
+.gruvbox-light .hljs-literal,
+.gruvbox-light .hljs-number {
+  color: #8f3f71;
+}
+
+.gruvbox-light .hljs-comment,
+.gruvbox-light .hljs-emphasis {
+  font-style: italic;
+}
+
+.gruvbox-light .hljs-section,
+.gruvbox-light .hljs-strong,
+.gruvbox-light .hljs-tag {
+  font-weight: bold;
+}

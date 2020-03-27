@@ -1,0 +1,671 @@
+/*	
+	This file defines the default set of CSS styles available in the Rich editor
+*/
+
+
+p.caption {
+	font-style: italic;
+	color: grey;
+}
+
+span.highlight {
+	background: yellow;
+}
+
+img.left {
+	float: left;
+}
+
+img.right {
+	float: right;
+}
+
+html, body {
+  height: 100%;
+}
+
+/*** ADDED BY LORNWOLF START ***/
+body[class*="cke_editable "] {margin : 10px;}
+
+span[style*="font-family:MS Mincho"] {display: inline-block;transform: rotate(.03deg);font-weight: 700;}
+span[style*="font-family:宋体（美化）"] {font-family:宋体,SimSun,'Songti SC' !important;display: inline-block;transform: rotate(.03deg);font-weight: 700;}
+
+/* 调整段落间距。*/
+p {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* 代码段的字体字号。*/
+pre>code {
+    font-family: "Yahei Mono", "Sans Mono", "Consolas", "Courier", monospace;
+    font-size: 11pt;
+}
+
+/* 禁用代码段拖拽功能（因为只读模式下拖拽代码段会消失）。*/
+.cke_widget_drag_handler {
+    display : none !important;
+}
+/*** ADDED BY LORNWOLF END ***/
+
+.androidstudio {
+  color: #a9b7c6;
+  background: #282b2e;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+}
+
+.androidstudio .hljs-number,
+.androidstudio .hljs-literal,
+.androidstudio .hljs-symbol,
+.androidstudio .hljs-bullet {
+  color: #6897BB;
+}
+
+.androidstudio .hljs-keyword,
+.androidstudio .hljs-selector-tag,
+.androidstudio .hljs-deletion {
+  color: #cc7832;
+}
+
+.androidstudio .hljs-variable,
+.androidstudio .hljs-template-variable,
+.androidstudio .hljs-link {
+  color: #629755;
+}
+
+.androidstudio .hljs-comment,
+.androidstudio .hljs-quote {
+  color: #808080;
+}
+
+.androidstudio .hljs-meta {
+  color: #bbb529;
+}
+
+.androidstudio .hljs-string,
+.androidstudio .hljs-attribute,
+.androidstudio .hljs-addition {
+  color: #6A8759;
+}
+
+.androidstudio .hljs-section,
+.androidstudio .hljs-title,
+.androidstudio .hljs-type {
+  color: #ffc66d;
+}
+
+.androidstudio .hljs-name,
+.androidstudio .hljs-selector-id,
+.androidstudio .hljs-selector-class {
+  color: #e8bf6a;
+}
+
+.androidstudio .hljs-emphasis {
+  font-style: italic;
+}
+
+.androidstudio .hljs-strong {
+  font-weight: bold;
+}
+
+.idea {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #000;
+  background: #fff;
+}
+
+.idea .hljs-subst,
+.idea .hljs-title {
+  font-weight: normal;
+  color: #000;
+}
+
+.idea .hljs-comment,
+.idea .hljs-quote {
+  color: #808080;
+  font-style: italic;
+}
+
+.idea .hljs-meta {
+  color: #808000;
+}
+
+.idea .hljs-tag {
+  background: #efefef;
+}
+
+.idea .hljs-section,
+.idea .hljs-name,
+.idea .hljs-literal,
+.idea .hljs-keyword,
+.idea .hljs-selector-tag,
+.idea .hljs-type,
+.idea .hljs-selector-id,
+.idea .hljs-selector-class {
+  font-weight: bold;
+  color: #000080;
+}
+
+.idea .hljs-attribute,
+.idea .hljs-number,
+.idea .hljs-regexp,
+.idea .hljs-link {
+  font-weight: bold;
+  color: #0000ff;
+}
+
+.idea .hljs-number,
+.idea .hljs-regexp,
+.idea .hljs-link {
+  font-weight: normal;
+}
+
+.idea .hljs-string {
+  color: #008000;
+  font-weight: bold;
+}
+
+.idea .hljs-symbol,
+.idea .hljs-bullet,
+.idea .hljs-formula {
+  color: #000;
+  background: #d0eded;
+  font-style: italic;
+}
+
+.idea .hljs-doctag {
+  text-decoration: underline;
+}
+
+.idea .hljs-variable,
+.idea .hljs-template-variable {
+  color: #660e7a;
+}
+
+.idea .hljs-addition {
+  background: #baeeba;
+}
+
+.idea .hljs-deletion {
+  background: #ffc8bd;
+}
+
+.idea .hljs-emphasis {
+  font-style: italic;
+}
+
+.idea .hljs-strong {
+  font-weight: bold;
+}
+
+.school-book {
+  display: block;
+  overflow-x: auto;
+  padding: 15px 0.5em 0.5em 30px;
+  font-size: 11px;
+  line-height:16px;
+  background:#f6f6ae url(./school-book.png);
+  border-top: solid 2px #d2e8b9;
+  border-bottom: solid 1px #d2e8b9;
+}
+
+.school-book .hljs-keyword,
+.school-book .hljs-selector-tag,
+.school-book .hljs-literal {
+  color:#005599;
+  font-weight:bold;
+}
+
+.school-book,
+.school-book .hljs-subst {
+  color: #3e5915;
+}
+
+.school-book .hljs-string,
+.school-book .hljs-title,
+.school-book .hljs-section,
+.school-book .hljs-type,
+.school-book .hljs-symbol,
+.school-book .hljs-bullet,
+.school-book .hljs-attribute,
+.school-book .hljs-built_in,
+.school-book .hljs-builtin-name,
+.school-book .hljs-addition,
+.school-book .hljs-variable,
+.school-book .hljs-template-tag,
+.school-book .hljs-template-variable,
+.school-book .hljs-link {
+  color: #2c009f;
+}
+
+.school-book .hljs-comment,
+.school-book .hljs-quote,
+.school-book .hljs-deletion,
+.school-book .hljs-meta {
+  color: #e60415;
+}
+
+.school-book .hljs-keyword,
+.school-book .hljs-selector-tag,
+.school-book .hljs-literal,
+.school-book .hljs-doctag,
+.school-book .hljs-title,
+.school-book .hljs-section,
+.school-book .hljs-type,
+.school-book .hljs-name,
+.school-book .hljs-selector-id,
+.school-book .hljs-strong {
+  font-weight: bold;
+}
+
+.school-book .hljs-emphasis {
+  font-style: italic;
+}
+
+.brown-paper {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background:#b7a68e url(./brown-papersq.png);
+}
+
+.brown-paper .hljs-keyword,
+.brown-paper .hljs-selector-tag,
+.brown-paper .hljs-literal {
+  color:#005599;
+  font-weight:bold;
+}
+
+.brown-paper,
+.brown-paper .hljs-subst {
+  color: #363c69;
+}
+
+.brown-paper .hljs-string,
+.brown-paper .hljs-title,
+.brown-paper .hljs-section,
+.brown-paper .hljs-type,
+.brown-paper .hljs-attribute,
+.brown-paper .hljs-symbol,
+.brown-paper .hljs-bullet,
+.brown-paper .hljs-built_in,
+.brown-paper .hljs-addition,
+.brown-paper .hljs-variable,
+.brown-paper .hljs-template-tag,
+.brown-paper .hljs-template-variable,
+.brown-paper .hljs-link,
+.brown-paper .hljs-name {
+  color: #2c009f;
+}
+
+.brown-paper .hljs-comment,
+.brown-paper .hljs-quote,
+.brown-paper .hljs-meta,
+.brown-paper .hljs-deletion {
+  color: #802022;
+}
+
+.brown-paper .hljs-keyword,
+.brown-paper .hljs-selector-tag,
+.brown-paper .hljs-literal,
+.brown-paper .hljs-doctag,
+.brown-paper .hljs-title,
+.brown-paper .hljs-section,
+.brown-paper .hljs-type,
+.brown-paper .hljs-name,
+.brown-paper .hljs-strong {
+  font-weight: bold;
+}
+
+.brown-paper .hljs-emphasis {
+  font-style: italic;
+}
+
+.gruvbox-light {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fbf1c7;
+}
+
+.gruvbox-light,
+.gruvbox-light .hljs-subst {
+  color: #3c3836;
+}
+
+/* Gruvbox Red */
+.gruvbox-light .hljs-deletion,
+.gruvbox-light .hljs-formula,
+.gruvbox-light .hljs-keyword,
+.gruvbox-light .hljs-link,
+.gruvbox-light .hljs-selector-tag {
+  color: #9d0006;
+}
+
+/* Gruvbox Blue */
+.gruvbox-light .hljs-built_in,
+.gruvbox-light .hljs-emphasis,
+.gruvbox-light .hljs-name,
+.gruvbox-light .hljs-quote,
+.gruvbox-light .hljs-strong,
+.gruvbox-light .hljs-title,
+.gruvbox-light .hljs-variable {
+  color: #076678;
+}
+
+/* Gruvbox Yellow */
+.gruvbox-light .hljs-attr,
+.gruvbox-light .hljs-params,
+.gruvbox-light .hljs-template-tag,
+.gruvbox-light .hljs-type {
+  color: #b57614;
+}
+
+/* Gruvbox Purple */
+.gruvbox-light .hljs-builtin-name,
+.gruvbox-light .hljs-doctag,
+.gruvbox-light .hljs-literal,
+.gruvbox-light .hljs-number {
+  color: #8f3f71;
+}
+
+/* Gruvbox Orange */
+.gruvbox-light .hljs-code,
+.gruvbox-light .hljs-meta,
+.gruvbox-light .hljs-regexp,
+.gruvbox-light .hljs-selector-id,
+.gruvbox-light .hljs-template-variable {
+  color: #af3a03;
+}
+
+/* Gruvbox Green */
+.gruvbox-light .hljs-addition,
+.gruvbox-light .hljs-meta-string,
+.gruvbox-light .hljs-section,
+.gruvbox-light .hljs-selector-attr,
+.gruvbox-light .hljs-selector-class,
+.gruvbox-light .hljs-string,
+.gruvbox-light .hljs-symbol {
+  color: #79740e;
+}
+
+/* Gruvbox Aqua */
+.gruvbox-light .hljs-attribute,
+.gruvbox-light .hljs-bullet,
+.gruvbox-light .hljs-class,
+.gruvbox-light .hljs-function,
+.gruvbox-light .hljs-function .hljs-keyword,
+.gruvbox-light .hljs-meta-keyword,
+.gruvbox-light .hljs-selector-pseudo,
+.gruvbox-light .hljs-tag {
+  color: #427b58;
+}
+
+/* Gruvbox Gray */
+.gruvbox-light .hljs-comment {
+  color: #928374;
+}
+
+/* Gruvbox Purple */
+.gruvbox-light .hljs-link_label,
+.gruvbox-light .hljs-literal,
+.gruvbox-light .hljs-number {
+  color: #8f3f71;
+}
+
+.gruvbox-light .hljs-comment,
+.gruvbox-light .hljs-emphasis {
+  font-style: italic;
+}
+
+.gruvbox-light .hljs-section,
+.gruvbox-light .hljs-strong,
+.gruvbox-light .hljs-tag {
+  font-weight: bold;
+}
+
+.ir-black {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #000;
+  color: #f8f8f8;
+}
+
+.ir-black .hljs-comment,
+.ir-black .hljs-quote,
+.ir-black .hljs-meta {
+  color: #7c7c7c;
+}
+
+.ir-black .hljs-keyword,
+.ir-black .hljs-selector-tag,
+.ir-black .hljs-tag,
+.ir-black .hljs-name {
+  color: #96cbfe;
+}
+
+.ir-black .hljs-attribute,
+.ir-black .hljs-selector-id {
+  color: #ffffb6;
+}
+
+.ir-black .hljs-string,
+.ir-black .hljs-selector-attr,
+.ir-black .hljs-selector-pseudo,
+.ir-black .hljs-addition {
+  color: #a8ff60;
+}
+
+.ir-black .hljs-subst {
+  color: #daefa3;
+}
+
+.ir-black .hljs-regexp,
+.ir-black .hljs-link {
+  color: #e9c062;
+}
+
+.ir-black .hljs-title,
+.ir-black .hljs-section,
+.ir-black .hljs-type,
+.ir-black .hljs-doctag {
+  color: #ffffb6;
+}
+
+.ir-black .hljs-symbol,
+.ir-black .hljs-bullet,
+.ir-black .hljs-variable,
+.ir-black .hljs-template-variable,
+.ir-black .hljs-literal {
+  color: #c6c5fe;
+}
+
+.ir-black .hljs-number,
+.ir-black .hljs-deletion {
+  color:#ff73fd;
+}
+
+.ir-black .hljs-emphasis {
+  font-style: italic;
+}
+
+.ir-black .hljs-strong {
+  font-weight: bold;
+}
+
+.rainbow {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #474949;
+  color: #d1d9e1;
+}
+
+
+.rainbow .hljs-comment,
+.rainbow .hljs-quote {
+  color: #969896;
+  font-style: italic;
+}
+
+.rainbow .hljs-keyword,
+.rainbow .hljs-selector-tag,
+.rainbow .hljs-literal,
+.rainbow .hljs-type,
+.rainbow .hljs-addition {
+  color: #cc99cc;
+}
+
+.rainbow .hljs-number,
+.rainbow .hljs-selector-attr,
+.rainbow .hljs-selector-pseudo {
+  color: #f99157;
+}
+
+.rainbow .hljs-string,
+.rainbow .hljs-doctag,
+.rainbow .hljs-regexp {
+  color: #8abeb7;
+}
+
+.rainbow .hljs-title,
+.rainbow .hljs-name,
+.rainbow .hljs-section,
+.rainbow .hljs-built_in {
+  color: #b5bd68;
+}
+
+.rainbow .hljs-variable,
+.rainbow .hljs-template-variable,
+.rainbow .hljs-selector-id,
+.rainbow .hljs-class .hljs-title {
+   color: #ffcc66;
+}
+
+.rainbow .hljs-section,
+.rainbow .hljs-name,
+.rainbow .hljs-strong {
+  font-weight: bold;
+}
+
+.rainbow .hljs-symbol,
+.rainbow .hljs-bullet,
+.rainbow .hljs-subst,
+.rainbow .hljs-meta,
+.rainbow .hljs-link {
+  color: #f99157;
+}
+
+.rainbow .hljs-deletion {
+  color: #dc322f;
+}
+
+.rainbow .hljs-formula {
+  background: #eee8d5;
+}
+
+.rainbow .hljs-attr,
+.rainbow .hljs-attribute {
+  color: #81a2be;
+}
+
+.rainbow .hljs-emphasis {
+  font-style: italic;
+}
+
+.shades-of-purple {
+  display: block;
+  overflow-x: auto;
+  /* Custom font is optional */
+  /* font-family: 'Operator Mono', 'Fira Code', 'Menlo', 'Monaco', 'Courier New', 'monospace';  */
+  padding: 0.5em;
+  background: #2d2b57;
+  font-weight: normal;
+}
+
+.shades-of-purple .hljs-title {
+  color: #fad000;
+  font-weight: normal;
+}
+
+.shades-of-purple .hljs-name {
+  color: #a1feff;
+}
+
+.shades-of-purple .hljs-tag {
+  color: #ffffff;
+}
+
+.shades-of-purple .hljs-attr {
+  color: #f8d000;
+  font-style: italic;
+}
+
+.shades-of-purple .hljs-built_in,
+.shades-of-purple .hljs-selector-tag,
+.shades-of-purple .hljs-section {
+  color: #fb9e00;
+}
+
+.shades-of-purple .hljs-keyword {
+  color: #fb9e00;
+}
+
+.shades-of-purple ,
+.shades-of-purple .hljs-subst {
+  color: #e3dfff;
+}
+
+.shades-of-purple .hljs-string,
+.shades-of-purple .hljs-attribute,
+.shades-of-purple .hljs-symbol,
+.shades-of-purple .hljs-bullet,
+.shades-of-purple .hljs-addition,
+.shades-of-purple .hljs-code,
+.shades-of-purple .hljs-regexp,
+.shades-of-purple .hljs-selector-class,
+.shades-of-purple .hljs-selector-attr,
+.shades-of-purple .hljs-selector-pseudo,
+.shades-of-purple .hljs-template-tag,
+.shades-of-purple .hljs-quote,
+.shades-of-purple .hljs-deletion {
+  color: #4cd213;
+}
+
+.shades-of-purple .hljs-meta,
+.shades-of-purple .hljs-meta-string {
+  color: #fb9e00;
+}
+
+.shades-of-purple .hljs-comment {
+  color: #ac65ff;
+}
+
+.shades-of-purple .hljs-keyword,
+.shades-of-purple .hljs-selector-tag,
+.shades-of-purple .hljs-literal,
+.shades-of-purple .hljs-name,
+.shades-of-purple .hljs-strong {
+  font-weight: normal;
+}
+
+.shades-of-purple .hljs-literal,
+.shades-of-purple .hljs-number {
+  color: #fa658d;
+}
+
+.shades-of-purple .hljs-emphasis {
+  font-style: italic;
+}
+
+.shades-of-purple .hljs-strong {
+  font-weight: bold;
+}
