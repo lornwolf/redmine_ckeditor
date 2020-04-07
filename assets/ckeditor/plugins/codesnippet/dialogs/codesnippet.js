@@ -68,67 +68,81 @@
             minHeight: 500,
             resizable: CKEDITOR.DIALOG_RESIZE_NONE,
             contents: [{
-                id: 'info',
+                id: 'main_panel',
                 elements: [{
-                        id: 'lang',
-                        type: 'select',
-                        label: lang.language,
-                        items: langSelectItems,
-                        className: 'cke_pbckcode_form',
-                        setup: function(widget) {
-                            if (widget.ready && widget.data.lang)
-                                this.setValue(widget.data.lang);
+                    type: 'vbox',
+                    padding: 0,
+                    children: [{
+                        type: 'hbox',
+                        widths: [ '20%', null ],
+                        styles: [ 'vertical-align:top' ],
+                        children: [
+                            {
+                                id: 'lang',
+                                type: 'select',
+                                label: lang.language,
+                                items: langSelectItems,
+                                className: 'cke_pbckcode_form',
+                                setup: function(widget) {
+                                    if (widget.ready && widget.data.lang)
+                                        this.setValue(widget.data.lang);
 
-                            // The only way to have an empty select value in Firefox is to set a negative selectedIndex.
-                            if (CKEDITOR.env.gecko && (!widget.data.lang || !widget.ready))
-                                this.getInputElement().$.selectedIndex = -1;
-                        },
-                        commit: function(widget) {
-                            widget.setData('lang', this.getValue());
-                        },
-                        onChange: function() {
-                            if (!!languages[this.getValue()]) {
-                                let language = languages[this.getValue()];
-                                let frame = document.getElementById("cke_source_editor");
-                                // 等待iframe页面加载完成。
-                                if (!frame.contentWindow || !frame.contentWindow.setMode) {
-                                    let count = 0;
-                                    var codesnippet_interval = setInterval(function() {
-                                        if (typeof frame.contentWindow.setMode === 'function' || count >= 10) {
+                                    // The only way to have an empty select value in Firefox is to set a negative selectedIndex.
+                                    if (CKEDITOR.env.gecko && (!widget.data.lang || !widget.ready))
+                                        this.getInputElement().$.selectedIndex = -1;
+                                },
+                                commit: function(widget) {
+                                    widget.setData('lang', this.getValue());
+                                },
+                                onChange: function() {
+                                    if (!!languages[this.getValue()]) {
+                                        let language = languages[this.getValue()];
+                                        let frame = document.getElementById("cke_source_editor");
+                                        // 等待iframe页面加载完成。
+                                        if (!frame.contentWindow || !frame.contentWindow.setMode) {
+                                            let count = 0;
+                                            var codesnippet_interval = setInterval(function() {
+                                                if (typeof frame.contentWindow.setMode === 'function' || count >= 10) {
+                                                    frame.contentWindow.setMode(language);
+                                                    clearInterval(codesnippet_interval);
+                                                }
+                                                count++;
+                                            }, 1000);
+                                        } else {
                                             frame.contentWindow.setMode(language);
-                                            clearInterval(codesnippet_interval);
                                         }
-                                        count++;
-                                    }, 1000);
-                                } else {
-                                    frame.contentWindow.setMode(language);
+                                    }
+                                }
+                            },
+                            {
+                                id: 'style',
+                                type: 'select',
+                                label: lang.style,
+                                items: styleSelectItems,
+                                className: 'cke_pbckcode_form',
+                                setup: function(widget) {
+                                    if (widget.ready && widget.data.style)
+                                        this.setValue(widget.data.style);
+
+                                    // The only way to have an empty select value in Firefox is to set a negative selectedIndex.
+                                    if (CKEDITOR.env.gecko && (!widget.data.style || !widget.ready))
+                                        this.getInputElement().$.selectedIndex = -1;
+                                },
+                                commit: function(widget) {
+                                    if (this.getValue()) {
+                                        widget.setData('style', this.getValue());
+                                    } else {
+                                        widget.setData('style', 'androidstudio');
+                                    }
+                                },
+                                onChange: function() {
                                 }
                             }
-                        }
+                        ]
                     },
                     {
-                        id: 'style',
-                        type: 'select',
-                        label: lang.style,
-                        items: styleSelectItems,
-                        className: 'cke_pbckcode_form',
-                        setup: function(widget) {
-                            if (widget.ready && widget.data.style)
-                                this.setValue(widget.data.style);
-
-                            // The only way to have an empty select value in Firefox is to set a negative selectedIndex.
-                            if (CKEDITOR.env.gecko && (!widget.data.style || !widget.ready))
-                                this.getInputElement().$.selectedIndex = -1;
-                        },
-                        commit: function(widget) {
-                            if (this.getValue()) {
-                                widget.setData('style', this.getValue());
-                            } else {
-                                widget.setData('style', 'androidstudio');
-                            }
-                        },
-                        onChange: function() {
-                        }
+                        type: 'html',
+                        html: '&nbsp;'
                     },
                     {
                         id: 'code-textarea',
@@ -165,10 +179,10 @@
                             let frame = document.getElementById("cke_source_editor");
                             widget.setData('code', frame.contentWindow.getValue());
                         }
-                    }
-                ],
+                    }] 
+                }], // end of elements.
                 onLoad: function() {}
-            }]
-        };
+            }] // end of contents.
+        }; // end of return.
     });
 }());
