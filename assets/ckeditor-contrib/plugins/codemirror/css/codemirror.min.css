@@ -468,7 +468,7 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror {
-    font: 13px/1.4em monospace;
+    font: 13px/1.4em 'Yahei Mono',monospace;
     text-align: left
 }
 
