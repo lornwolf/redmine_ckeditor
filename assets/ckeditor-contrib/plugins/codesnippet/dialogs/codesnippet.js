@@ -74,15 +74,18 @@
                     padding: 0,
                     children: [{
                         type: 'hbox',
-                        widths: [ '20%', null ],
-                        styles: [ 'vertical-align:top' ],
+                        widths: [ '30%', '30%', null ],
+                        styles: ['vertical-align:middle;'], // 没起作用。
                         children: [
                             {
                                 id: 'lang',
                                 type: 'select',
                                 label: lang.language,
+                                labelLayout: 'horizontal',
+                                widths: [40, 80],
+                                style: "",
                                 items: langSelectItems,
-                                className: 'cke_pbckcode_form',
+                                className: 'lang_select',
                                 setup: function(widget) {
                                     if (widget.ready && widget.data.lang)
                                         this.setValue(widget.data.lang);
@@ -118,6 +121,8 @@
                                 id: 'style',
                                 type: 'select',
                                 label: lang.style,
+                                labelLayout: 'horizontal',
+                                widths: [30, 100],
                                 items: styleSelectItems,
                                 className: 'cke_pbckcode_form',
                                 setup: function(widget) {
@@ -137,6 +142,25 @@
                                 },
                                 onChange: function() {
                                 }
+                            },
+                            {
+                                id: 'formatCode',
+                                type: 'button',
+                                label: lang.format,
+                                className: 'cke_pbckcode_form',
+                                onClick: function() {
+                                    let lang = document.querySelector("select.lang_select");
+                                    let frame = document.getElementById("cke_source_editor");
+                                    if (lang.value == 'css') {
+                                        frame.contentWindow.formatCssCode();
+                                    } else if (lang.value == 'html') {
+                                        frame.contentWindow.formatHtmlCode();
+                                    } else if (lang.value == 'java') {
+                                        frame.contentWindow.formatJsCode();
+                                    } else if (lang.value == 'javascript') {
+                                        frame.contentWindow.formatJsCode();
+                                    }
+                                }
                             }
                         ]
                     },
@@ -147,8 +171,16 @@
                     {
                         id: 'code-textarea',
                         type: 'html',
-                        html: '<iframe src="/javascripts/ckeditor4/plugins/codesnippet/dialogs/ace.html" scrolling="auto" id="cke_source_editor" style="height:470px;width:' + width + 'px;"></iframe>',
+                        html: '<iframe src="/redmine/plugin_assets/redmine_ckeditor/ckeditor-contrib/plugins/codesnippet/dialogs/ace.html" scrolling="auto" id="cke_source_editor" style="height:470px;width:' + width + 'px;"></iframe>',
                         setup: function(widget) {
+                            // 调整标签的垂直对齐（写在这里很奇怪，但不知道有别的方法）。
+                            let hbox = document.querySelectorAll("label[class=cke_dialog_ui_labeled_label]");
+                            if (hbox && hbox.length) {
+                                hbox.forEach(function(userItem) {
+                                    userItem.parentNode.style["vertical-align"] = 'middle';
+                                });
+                            }
+
                             let frame = document.getElementById("cke_source_editor");
                             // 等待iframe页面加载完成。
                             if (!frame.contentWindow || !frame.contentWindow.setValue) {
@@ -181,7 +213,8 @@
                         }
                     }] 
                 }], // end of elements.
-                onLoad: function() {}
+                onLoad: function() {
+                }
             }] // end of contents.
         }; // end of return.
     });

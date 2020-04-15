@@ -18,7 +18,10 @@
 
     <div id="editor"></div>
 
-    <script src="/javascripts/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://www.lornwolf.cn/javascripts/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify-css.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify-html.js"></script>
     <script>
         var editor = ace.edit("editor");
         // 不做语法检查。
@@ -37,6 +40,68 @@
         };
         window.setMode = function(val) {
             window.editor.getSession().setMode("ace/mode/" + val);
+        };
+        window.formatCssCode = function() {
+            window.editor.setValue(css_beautify(window.editor.getValue(), {
+                indent_size: "4",
+                indent_char: " ",
+                max_preserve_newlines: "-1",
+                preserve_newlines: false,
+                keep_array_indentation: false,
+                break_chained_methods: false,
+                indent_scripts: "normal",
+                brace_style: "collapse",
+                space_before_conditional: true,
+                unescape_strings: false,
+                jslint_happy: false,
+                end_with_newline: false,
+                wrap_line_length: "0",
+                comma_first: false,
+                e4x: false,
+                indent_empty_lines: true
+            }));
+        };
+        window.formatHtmlCode = function() {
+            window.editor.setValue(html_beautify(window.editor.getValue(), {
+                indent_size: "4",
+                indent_char: " ",
+                max_preserve_newlines: "-1", // 最大连续保留换行符个数。比如设为2，则会将2行以上的空行删除为只保留1行。
+                preserve_newlines: false, // 保留空行。
+                keep_array_indentation: false, // 保持数组缩进。
+                break_chained_methods: false, // 在随后的行中断开链式方法调用。
+                indent_scripts: "normal",
+                brace_style: "collapse", //代码样式，可选值 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]
+                space_before_conditional: true,
+                unescape_strings: false, // 使用xNN符号编码解码可显示的字符。
+                jslint_happy: false, // 启用jslint-strict模式。
+                end_with_newline: false, // 使用换行结束输出。
+                wrap_line_length: "0",
+                comma_first: false,
+                e4x: false,
+                indent_empty_lines: true,
+                indent_inner_html: true,
+                indent_handlebars: true
+            }));
+        };
+        window.formatJsCode = function() {
+            window.editor.setValue(js_beautify(window.editor.getValue(), {
+                indent_size: "4",
+                indent_char: " ",
+                max_preserve_newlines: "-1",
+                preserve_newlines: false,
+                keep_array_indentation: false,
+                break_chained_methods: false,
+                indent_scripts: "normal",
+                brace_style: "collapse",
+                space_before_conditional: true,
+                unescape_strings: false,
+                jslint_happy: false,
+                end_with_newline: false,
+                wrap_line_length: "0",
+                comma_first: false,
+                e4x: false,
+                indent_empty_lines: true
+            }));
         };
     </script>
 </body>
