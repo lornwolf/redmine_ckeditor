@@ -1,20 +1,22 @@
 .CodeMirror {
     font-family: 'Yahei Mono',monospace;
     height: 300px;
-    color: #000
+    color: black;
+    direction: ltr
 }
 
 .CodeMirror-lines {
     padding: 4px 0
 }
 
-.CodeMirror pre {
+.CodeMirror pre.CodeMirror-line,
+.CodeMirror pre.CodeMirror-line-like {
     padding: 0 4px
 }
 
 .CodeMirror-scrollbar-filler,
 .CodeMirror-gutter-filler {
-    background-color: #fff
+    background-color: white
 }
 
 .CodeMirror-gutters {
@@ -32,29 +34,38 @@
 }
 
 .CodeMirror-guttermarker {
-    color: #000
+    color: black
 }
 
 .CodeMirror-guttermarker-subtle {
     color: #999
 }
 
-.CodeMirror div.CodeMirror-cursor {
-    border-left: 1px solid #000
+.CodeMirror-cursor {
+    border-left: 1px solid black;
+    border-right: 0;
+    width: 0
 }
 
 .CodeMirror div.CodeMirror-secondarycursor {
-    border-left: 1px solid #c0c0c0
+    border-left: 1px solid silver
 }
 
-.CodeMirror.cm-fat-cursor div.CodeMirror-cursor {
+.cm-fat-cursor .CodeMirror-cursor {
     width: auto;
-    border: 0;
+    border: 0 !important;
     background: #7e7
 }
 
-.CodeMirror.cm-fat-cursor div.CodeMirror-cursors {
+.cm-fat-cursor div.CodeMirror-cursors {
     z-index: 1
+}
+
+.cm-fat-cursor-mark {
+    background-color: rgba(20, 255, 20, 0.5);
+    -webkit-animation: blink 1.06s steps(1) infinite;
+    -moz-animation: blink 1.06s steps(1) infinite;
+    animation: blink 1.06s steps(1) infinite
 }
 
 .cm-animate-fat-cursor {
@@ -62,48 +73,25 @@
     border: 0;
     -webkit-animation: blink 1.06s steps(1) infinite;
     -moz-animation: blink 1.06s steps(1) infinite;
-    animation: blink 1.06s steps(1) infinite
+    animation: blink 1.06s steps(1) infinite;
+    background-color: #7e7
 }
 
 @-moz-keyframes blink {
-    0% {
-        background: #7e7
-    }
-    
     50% {
-        background: none
-    }
-    
-    100% {
-        background: #7e7
+        background-color: transparent
     }
 }
 
 @-webkit-keyframes blink {
-    0% {
-        background: #7e7
-    }
-    
     50% {
-        background: none
-    }
-    
-    100% {
-        background: #7e7
+        background-color: transparent
     }
 }
 
 @keyframes blink {
-    0% {
-        background: #7e7
-    }
-    
     50% {
-        background: none
-    }
-    
-    100% {
-        background: #7e7
+        background-color: transparent
     }
 }
 
@@ -112,13 +100,24 @@
     text-decoration: inherit
 }
 
+.CodeMirror-rulers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50px;
+    bottom: 0;
+    overflow: hidden
+}
+
 .CodeMirror-ruler {
     border-left: 1px solid #ccc;
+    top: 0;
+    bottom: 0;
     position: absolute
 }
 
 .cm-s-default .cm-header {
-    color: #00f
+    color: blue
 }
 
 .cm-s-default .cm-quote {
@@ -170,7 +169,8 @@
     color: #05a
 }
 
-.cm-s-default .cm-variable-3 {
+.cm-s-default .cm-variable-3,
+.cm-s-default .cm-type {
     color: #085
 }
 
@@ -231,11 +231,11 @@
 }
 
 div.CodeMirror span.CodeMirror-matchingbracket {
-    color: #0f0
+    color: #0b0
 }
 
 div.CodeMirror span.CodeMirror-nonmatchingbracket {
-    color: #f22
+    color: #a22
 }
 
 .CodeMirror-matchingtag {
@@ -249,7 +249,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror {
     position: relative;
     overflow: hidden;
-    background: #fff
+    background: white
 }
 
 .CodeMirror-scroll {
@@ -258,7 +258,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     margin-right: -30px;
     padding-bottom: 30px;
     height: 100%;
-    outline: none;
+    outline: 0;
     position: relative
 }
 
@@ -304,6 +304,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     position: absolute;
     left: 0;
     top: 0;
+    min-height: 100%;
     z-index: 3
 }
 
@@ -311,15 +312,22 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     white-space: normal;
     height: 100%;
     display: inline-block;
-    margin-bottom: -30px;
-    *zoom: 1;
-    *display: inline
+    vertical-align: top;
+    margin-bottom: -30px
 }
 
 .CodeMirror-gutter-wrapper {
     position: absolute;
     z-index: 4;
-    height: 100%
+    background: none !important;
+    border: none !important
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 4
 }
 
 .CodeMirror-gutter-elt {
@@ -328,10 +336,12 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     z-index: 4
 }
 
-.CodeMirror-gutter-wrapper {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none
+.CodeMirror-gutter-wrapper ::selection {
+    background-color: transparent
+}
+
+.CodeMirror-gutter-wrapper ::-moz-selection {
+    background-color: transparent
 }
 
 .CodeMirror-lines {
@@ -339,7 +349,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     min-height: 1px
 }
 
-.CodeMirror pre {
+.CodeMirror pre.CodeMirror-line,
+.CodeMirror pre.CodeMirror-line-like {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -355,10 +366,13 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     z-index: 2;
     position: relative;
     overflow: visible;
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-variant-ligatures: contextual;
+    font-variant-ligatures: contextual
 }
 
-.CodeMirror-wrap pre {
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
     word-wrap: break-word;
     white-space: pre-wrap;
     word-break: normal
@@ -376,11 +390,15 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror-linewidget {
     position: relative;
     z-index: 2;
-    overflow: auto
+    padding: .1px
+}
+
+.CodeMirror-rtl pre {
+    direction: rtl
 }
 
 .CodeMirror-code {
-    outline: none
+    outline: 0
 }
 
 .CodeMirror-scroll,
@@ -400,20 +418,23 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden
 }
 
-.CodeMirror-measure pre {
-    position: static
+.CodeMirror-cursor {
+    position: absolute;
+    pointer-events: none
 }
 
-.CodeMirror div.CodeMirror-cursor {
-    position: absolute;
-    border-right: none;
-    width: 0
+.CodeMirror-measure pre {
+    position: static
 }
 
 div.CodeMirror-cursors {
     visibility: hidden;
     position: relative;
     z-index: 3
+}
+
+div.CodeMirror-dragcursors {
+    visibility: visible
 }
 
 .CodeMirror-focused div.CodeMirror-cursors {
@@ -432,21 +453,21 @@ div.CodeMirror-cursors {
     cursor: crosshair
 }
 
-.CodeMirror ::selection {
+.CodeMirror-line::selection,
+.CodeMirror-line>span::selection,
+.CodeMirror-line>span>span::selection {
     background: #d7d4f0
 }
 
-.CodeMirror ::-moz-selection {
+.CodeMirror-line::-moz-selection,
+.CodeMirror-line>span::-moz-selection,
+.CodeMirror-line>span>span::-moz-selection {
     background: #d7d4f0
 }
 
 .cm-searching {
-    background: #ffa;
-    background: rgba(255, 255, 0, .4)
-}
-
-.CodeMirror span {
-    *vertical-align: text-bottom
+    background-color: #ffa;
+    background-color: rgba(255, 255, 0, .4)
 }
 
 .cm-force-border {
@@ -464,7 +485,7 @@ div.CodeMirror-cursors {
 }
 
 span.CodeMirror-selectedtext {
-    background: none
+    background: 0
 }
 
 .CodeMirror {
@@ -477,7 +498,7 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror .CodeMirror-foldmarker {
-    color: #00f;
+    color: blue;
     -ms-text-shadow: #b9f 1px 1px 2px, #b9f -1px -1px 2px, #b9f 1px -1px 2px, #b9f -1px 1px 2px;
     -webkit-text-shadow: #b9f 1px 1px 2px, #b9f -1px -1px 2px, #b9f 1px -1px 2px, #b9f -1px 1px 2px;
     text-shadow: #b9f 1px 1px 2px, #b9f -1px -1px 2px, #b9f 1px -1px 2px, #b9f -1px 1px 2px;
@@ -488,7 +509,7 @@ span.CodeMirror-selectedtext {
 
 .CodeMirror-matchingtag {
     background: #ff9600;
-    background: rgba(255, 150, 0, .3)
+    background: rgba(255, 150, 0, 0.3)
 }
 
 .searchCodeButton span,
@@ -501,23 +522,25 @@ span.CodeMirror-selectedtext {
 }
 
 .searchCodeButton span {
-    background: url("../icons/searchcode.png") no-repeat
+    background: url("../images/searchcode.png") no-repeat
 }
 
 .autoFormat span {
-    background: url("../icons/autoformat.png") no-repeat
+    background: url("../images/autoformat.png") no-repeat
 }
 
 .CommentSelectedRange span {
-    background: url("../icons/commentselectedrange.png") no-repeat
+    background: url("../images/commentselectedrange.png") no-repeat
 }
 
 .UncommentSelectedRange span {
-    background: url("../icons/uncommentselectedrange.png") no-repeat
+    background: url("../images/uncommentselectedrange.png") no-repeat
 }
 
 .cke_reset_all .CodeMirror-scroll * {
-    white-space: pre
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal
 }
 
 .cke_reset_all .cm-s-cobalt *,
@@ -627,8 +650,8 @@ span.CodeMirror-selectedtext {
     -ms-box-shadow: 2px 3px 5px #000;
     box-shadow: 2px 3px 5px #000;
     border-radius: 3px;
-    border: 1px solid #c0c0c0;
-    background: #fff;
+    border: 1px solid silver;
+    background: white;
     font-size: 90%;
     font-family: monospace;
     max-height: 20em;
@@ -642,13 +665,13 @@ span.CodeMirror-selectedtext {
     max-width: 19em;
     overflow: hidden;
     white-space: pre;
-    color: #000;
+    color: black;
     cursor: pointer
 }
 
 .CodeMirror-hint-active {
     background: #08f;
-    color: #fff
+    color: white
 }
 
 .cm-trailingspace {
@@ -679,8 +702,8 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror-dialog input {
-    border: none;
-    outline: none;
+    border: 0;
+    outline: 0;
     background: transparent;
     width: 20em;
     color: inherit;
@@ -691,8 +714,41 @@ span.CodeMirror-selectedtext {
     font-size: 70%
 }
 
+.CodeMirror-hints {
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    -webkit-box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    border: 1px solid silver;
+    background: white;
+    font-size: 90%;
+    font-family: monospace;
+    max-height: 20em;
+    overflow-y: auto
+}
+
+.CodeMirror-hint {
+    margin: 0;
+    padding: 0 4px;
+    border-radius: 2px;
+    white-space: pre;
+    color: black;
+    cursor: pointer
+}
+
+li.CodeMirror-hint-active {
+    background: #08f;
+    color: white
+}
+
 .CodeMirror-foldmarker {
-    color: #00f;
+    color: blue;
     text-shadow: #b9f 1px 1px 2px, #b9f -1px -1px 2px, #b9f 1px -1px 2px, #b9f -1px 1px 2px;
     font-family: arial;
     line-height: .3;
@@ -709,9 +765,9 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror-foldgutter-open:after {
-    content: "▾"
+    content: "\25BE"
 }
 
 .CodeMirror-foldgutter-folded:after {
-    content: "▸"
+    content: "\25B8"
 }
