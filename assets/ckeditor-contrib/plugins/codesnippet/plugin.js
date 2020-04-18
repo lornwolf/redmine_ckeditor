@@ -32,7 +32,7 @@
                 // We might escape special regex chars below, but we expect that there
                 // should be no crazy values used as lang keys.
                 editor._.codesnippet.langsRegex = new RegExp('(?:^|\\s)language-(' +
-                        CKEDITOR.tools.objectKeys(langs).join('|') + ')(?:\\s|$)');
+                    CKEDITOR.tools.objectKeys(langs).join('|') + ')(?:\\s|$)');
             };
 
             editor.once('pluginsLoaded', function() {
@@ -284,12 +284,17 @@
                     data.lang = matchResult[1];
 
                 // Use textarea to decode HTML entities (https://dev.ckeditor.com/ticket/11926).
-                textarea.setHtml(code.getHtml().replace(/<\/?.+?>/g,""));
+                textarea.setHtml(code.getHtml().replace(/<\/?.+?>/g, ""));
                 data.code = textarea.getValue();
 
+                /* 2020/4/18 修正编辑模式下主题下拉框初始显示不正确的BUG。
                 if (code.classes && code.classes.length > 1) {
                     code.addClass(code.classes[1]);
                     data.style = code.classes[1];
+                }*/
+                if (code.attributes.class && code.attributes.class.indexOf(" ") > 0) {
+                    code.addClass(code.attributes.class.split(" ")[1]);
+                    data.style = code.attributes.class.split(" ")[1];
                 } else {
                     code.addClass('androidstudio');
                     data.style = 'androidstudio';
