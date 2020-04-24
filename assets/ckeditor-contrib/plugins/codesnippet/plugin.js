@@ -287,14 +287,15 @@
                 textarea.setHtml(code.getHtml().replace(/<\/?.+?>/g, ""));
                 data.code = textarea.getValue();
 
-                /* 2020/4/18 修正编辑模式下主题下拉框初始显示不正确的BUG。
-                if (code.classes && code.classes.length > 1) {
-                    code.addClass(code.classes[1]);
-                    data.style = code.classes[1];
-                }*/
+                // 2020/4/18 修正编辑模式下主题下拉框初始显示不正确的BUG。
                 if (code.attributes.class && code.attributes.class.indexOf(" ") > 0) {
-                    code.addClass(code.attributes.class.split(" ")[1]);
-                    data.style = code.attributes.class.split(" ")[1];
+                    let styles = code.attributes.class.split(" ");
+                    styles.forEach(function(value, index) {
+                        if (['androidstudio', 'idea', 'school-book', 'shades-of-purple', 'rainbow', 'ir-black', 'gruvbox-light', 'brown-paper'].includes(value)) {
+                            code.addClass(value);
+                            data.style = value;
+                        }
+                    });
                 } else {
                     code.addClass('androidstudio');
                     data.style = 'androidstudio';
