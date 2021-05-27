@@ -4,7 +4,7 @@
 目前只在Redmine 4.0上使用过。   
 克隆自https://github.com/a-ono/redmine_ckeditor，我在此基础上对 CKEditor 的功能做了扩充，主要是增加了以下功能。   
    
-1、加入了代码空间，可以高亮显示代码，支持多种语言和主题；   
+1、加入了代码控件，可以高亮显示代码，支持多种语言和主题；   
 2、支持base64格式插入图片；   
 3、可插入表情；   
    
@@ -55,26 +55,3 @@ You can select third-party skins placed in assets/ckeditor-contrib/skins directo
 
 You can configure {CKEditor settings}[http://docs.ckeditor.com/#!/api/CKEDITOR.config] and HTML sanitizer by using the REDMINE_ROOT/config/ckeditor.yml file.
     cp plugins/redmine_ckeditor/config/ckeditor.yml.example config/ckeditor.yml
-
-== Migration notes
-
-This plugin stores contents in HTML format and renders as is.
-If you have old contents, these look weird.
-
-You can use {redmine_per_project_formatting}[https://github.com/a-ono/redmine_per_project_formatting] plugin for backward compatibility or execute redmine_ckeditor:migrate task for migrating old text to HTML.
-    rake redmine_ckeditor:migrate RAILS_ENV=production FROM=textile TO=html
-You can also use PROJECT parameter to migrate only specific projets
-    rake redmine_ckeditor:migrate RAILS_ENV=production PROJECT=project_identifier1,project_identifier2 FROM=textile TO=html 
-This task requires to {install Pandoc}[http://johnmacfarlane.net/pandoc/installing.html].
-
-== Upgrading CKEditor (for development)
-
-1. Checkout the new version of CKEditor(full package) in the submodule directory
-
-    git submodule update --init
-    cd app/assets/javascripts/ckeditor-releases
-    git checkout FULL_VERSION (e.g. full/4.4.6)
-
-2. Execute generator
-
-    rails generate redmine_ckeditor:rich_assets
